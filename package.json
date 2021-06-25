@@ -1,0 +1,34 @@
+{
+  "name": "two-dishes-one-fish",
+  "version": "2.0.0",
+  "description": "A VuePress-next template.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Benbinbin/two-dishes-one-fish.git"
+  },
+  "author": "Benbinbin",
+  "license": "CC-BY-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/Benbinbin/two-dishes-one-fish/issues"
+  },
+  "homepage": "https://benbinbin.github.io/two-dishes-one-fish/",
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "postcss": "^8.3.0",
+    "tailwindcss": "^2.1.4",
+    "vuepress": "^2.0.0-beta.17",
+    "vuepress-vite": "^2.0.0-beta.17"
+  },
+  "dependencies": {
+    "@neilsustc/markdown-it-katex": "^0.13.5",
+    "d3": "^7.0.0",
+    "execa": "^5.1.1",
+    "masonry-layout": "^4.2.2"
+  }
+}

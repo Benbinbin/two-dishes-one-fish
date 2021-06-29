@@ -1,5 +1,6 @@
 ---
 show: true
+cover: math3.jpg
 collection: test
 collectionOrder: 3
 ---

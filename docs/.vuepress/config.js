@@ -1,12 +1,13 @@
 const { path } = require('@vuepress/utils')
 
 module.exports = {
+  open: true,
   lang: 'zh-CN',
   base: "/repo/",
   title: "Blog",
-  description: 'A VuePress-next template..',
+  description: 'A blog shows some of the notes I took while learning skills.',
   head: [
-    ['link', { rel: 'icon', href: '/images/favicon.ico' }],
+    ['link', { rel: 'icon', href: '/repo/images/favicon.ico' }],
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.13.5/dist/katex.min.css' }],
   ],
   bundler: '@vuepress/vite',
@@ -14,10 +15,10 @@ module.exports = {
     viteOptions: {
       css: {
         postcss: {
-            plugins: [
-              require('tailwindcss'),
-              require('autoprefixer')
-            ]
+          plugins: [
+            require('tailwindcss'),
+            require('autoprefixer')
+          ]
         }
       },
     }
@@ -46,7 +47,6 @@ module.exports = {
       postFolders: ['folder1', 'folder2']
     }],
   ],
-  // theme: '@vuepress/default',
   theme: path.resolve(__dirname, './theme/index.js'),
   themeConfig: {
     navbar: false,
@@ -64,11 +64,12 @@ module.exports = {
     }
   },
   extendsMarkdown: (md) => {
-    md.use(require('@neilsustc/markdown-it-katex'))
+    md.use(require('@neilsustc/markdown-it-katex'), {output: 'html'})
   },
   define: {
     __BASE__: "/repo/",
     __AUTHOR__: 'avatar',
+    __HOME_NAME_LINK__: 'https://www.google.com/',
     __AVATAR__: 'avatar.png',
     __SOCIAL_MEDIA__: [
       {
@@ -102,9 +103,8 @@ module.exports = {
         url: 'https://weibo.com/[username]'
       },
     ],
-    __HOME_NAME_LINK__: 'https://www.google.com/',
-    __CLASSIFICATIONS__: ['All', 'folder1', 'folder2'],
-    __FOLDERS__: ['folder1', 'folder2'],
+    __CLASSIFICATIONS__: ['All', 'Folder1', 'Folder2'],
+    __FOLDERS__: ['Folder1', 'Folder2'],
     __FOOTER_AVATAR_LINK__: 'https://www.google.com/',
   },
 }

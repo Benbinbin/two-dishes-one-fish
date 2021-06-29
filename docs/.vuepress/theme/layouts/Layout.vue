@@ -92,7 +92,7 @@ import Catalog from "../../components/Catalog.vue";
 import SideBar from "../../components/SideBar.vue";
 import Footer from "../../components/Footer.vue";
 import { reactive, toRefs, onMounted } from "vue";
-import { usePageData } from "@vuepress/client";
+// import { usePageData } from "@vuepress/client";
 
 const headingsMap = {
   H2: 2,
@@ -120,8 +120,8 @@ export default {
       headings: [],
     });
 
-    const page = usePageData();
-    console.log(page.value);
+    // const page = usePageData();
+    // console.log(page.value);
 
     onMounted(() => {
       // get headings list
@@ -129,9 +129,9 @@ export default {
         "theme-default-content"
       )[0];
       const headingDomList = contentDom.querySelectorAll("h2, h3, h4, h5, h6");
-      console.log(headingDomList);
+      // console.log(headingDomList);
       const headingsArr = Array.from(headingDomList);
-      console.log(headingsArr);
+      // console.log(headingsArr);
 
       headingDomList.forEach((item) => {
         data.headings.push({
@@ -196,7 +196,7 @@ export default {
         }
         scrollTimer = setTimeout(() => {
           getCurrentHeading();
-          this.scrollTimer = null;
+          scrollTimer = null;
         }, 300);
       };
     });

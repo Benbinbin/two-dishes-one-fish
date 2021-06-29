@@ -1,6 +1,9 @@
 <template>
   <div class="min-h-screen flex flex-col">
-    <Navbar class="sticky top-0 z-20 bg-white" :navbar-type="'classification'" />
+    <Navbar
+      class="sticky top-0 z-20 bg-white"
+      :navbar-type="'classification'"
+    />
 
     <main class="flex-grow">
       <h2 class="py-10 text-5xl font-bold text-center border-0">
@@ -23,7 +26,8 @@
             class="p-2 rounded flex items-center space-x-1"
             :class="{
               'bg-blue-500 hover:bg-blue-600 text-white': layout === 'grid',
-              'bg-gray-100 hover:bg-blue-500 text-gray-500 hover:text-white': layout !== 'grid',
+              'bg-gray-100 hover:bg-blue-500 text-gray-500 hover:text-white':
+                layout !== 'grid',
             }"
             title="网格布局"
             @click="setLayout('grid')"
@@ -66,7 +70,8 @@
             class="p-2 rounded flex items-center space-x-1"
             :class="{
               'bg-blue-500 hover:bg-blue-600 text-white': layout === 'list',
-              'bg-gray-100 hover:bg-blue-500 text-gray-500 hover:text-white': layout !== 'list',
+              'bg-gray-100 hover:bg-blue-500 text-gray-500 hover:text-white':
+                layout !== 'list',
             }"
             title="列表布局"
             @click="setLayout('list')"
@@ -90,7 +95,8 @@
             class="p-2 text-xs rounded"
             :class="{
               'bg-blue-500 hover:bg-blue-600 text-white': sortByUpdated,
-              'bg-gray-100 hover:bg-blue-500 text-gray-500 hover:text-white': !sortByUpdated,
+              'bg-gray-100 hover:bg-blue-500 text-gray-500 hover:text-white':
+                !sortByUpdated,
             }"
             title="按更新时间排序"
             @click="sortByUpdated = !sortByUpdated"
@@ -202,24 +208,13 @@
 
 <script>
 import { reactive, toRefs, onMounted, computed, nextTick } from "vue";
-import Masonry from "masonry-layout";
 import { usePageData } from "@vuepress/client";
 
-import Navbar from "../components/Navbar.vue";
-import Footer from "../components/Footer.vue";
-import PostCard from "../components/PostCard.vue";
-import PostList from "../components/PostList.vue";
-import CollectionModal from "../components/CollectionModal.vue";
-
-// masonry layout
-function createMasonryLayout(container, item) {
-  return new Masonry(container, {
-    itemSelector: item,
-    gutter: 28,
-    horizontalOrder: true,
-    transitionDuration: 0,
-  });
-}
+import Navbar from "../../components/Navbar.vue";
+import Footer from "../../components/Footer.vue";
+import PostCard from "../../components/PostCard.vue";
+import PostList from "../../components/PostList.vue";
+import CollectionModal from "../../components/CollectionModal.vue";
 
 export default {
   components: {
@@ -230,6 +225,7 @@ export default {
     CollectionModal,
   },
   setup(props) {
+    // data
     const data = reactive({
       classification: "",
       posts: [],
@@ -238,13 +234,105 @@ export default {
       layout: "grid",
       sortType: "descend",
       sortByUpdated: false,
-      masonry: null,
       collectionModalOpen: false,
       collection: null,
-      setLayout(value) {
-        if (data.layout === "masonry" && data.masonry) {
-          data.masonry.destroy();
-          data.masonry = null;
+      setLayout: () => {},
+    });
+
+    // methods
+    const setSortType = (value) => {
+      localStorage.setItem("sortType", value);
+      data.sortType = value;
+    };
+
+    const setCollectionHandler = (value) => {
+      let collectionPosts = [];
+      data.posts.forEach((post) => {
+        if (post.collection && post.collection === value) {
+          collectionPosts.push(post);
+        }
+      });
+      collectionPosts.sort((postA, postB) => {
+        const timeA = postA.date || postA.createdTime;
+        const timeB = postB.date || postB.createdTime;
+        const orderA = postA.collectionOrder;
+        const orderB = postB.collectionOrder;
+        if (orderA && orderB && orderA !== orderB) {
+          return orderA - orderB;
+        } else if (timeA && timeB) {
+          return new Date(timeA) - new Date(timeB);
+        } else {
+          return 0;
+        }
+      });
+      data.collection = {
+        title: value,
+        posts: collectionPosts,
+      };
+      data.collectionModalOpen = true;
+    };
+    const closeCollectionModalHandler = () => {
+      data.collectionModalOpen = false;
+      data.collection = null;
+    };
+
+    // get init page data
+    const page = usePageData();
+
+    data.classification = page.value.frontmatter.classification;
+    data.posts = page.value.postsList.posts;
+    data.tags = ["all", ...page.value.postsList.tags];
+
+    // tag
+    onMounted(() => {
+      // base on url hash to set current tag
+      if (location.hash) {
+        data.currentTag = location.hash.slice(1);
+      }
+
+      window.onhashchange = function (event) {
+        data.currentTag = location.hash.slice(1);
+      };
+    });
+
+    // layout
+    let masonry = null;
+    onMounted(async () => {
+      // base on localStorage to set layout
+      if (localStorage.getItem("layout")) {
+        data.layout = localStorage.getItem("layout");
+      } else {
+        localStorage.setItem("layout", "grid");
+      }
+      if (localStorage.getItem("sortType")) {
+        data.sortType = localStorage.getItem("sortType");
+      } else {
+        localStorage.setItem("sortType", "descend");
+      }
+
+      // dynamic import masonry
+      const module = await import("masonry-layout");
+      const Masonry = module.default;
+      
+      const createMasonryLayout = (container, item) => {
+        return new Masonry(container, {
+          itemSelector: item,
+          gutter: 28,
+          horizontalOrder: true,
+          transitionDuration: 0,
+        });
+      };
+
+      if (data.layout === "masonry") {
+        nextTick(() => {
+          masonry = createMasonryLayout("#cards-container", ".grid-item");
+        });
+      }
+
+      data.setLayout = (value) => {
+        if (data.layout === "masonry" && masonry) {
+          masonry.destroy();
+          masonry = null;
         }
 
         localStorage.setItem("layout", value);
@@ -252,80 +340,11 @@ export default {
 
         if (value === "masonry") {
           nextTick(() => {
-            data.masonry = createMasonryLayout(
-              "#cards-container",
-              ".grid-item"
-            );
+            masonry = createMasonryLayout("#cards-container", ".grid-item");
           });
         }
-      },
-      setSortType(value) {
-        localStorage.setItem("sortType", value);
-        data.sortType = value;
-      },
-      setCollectionHandler(value) {
-        let collectionPosts = [];
-        data.posts.forEach((post) => {
-          if (post.collection && post.collection === value) {
-            collectionPosts.push(post);
-          }
-        });
-        collectionPosts.sort((postA, postB) => {
-          const timeA = postA.date || postA.createdTime;
-          const timeB = postB.date || postB.createdTime;
-          const orderA = postA.collectionOrder;
-          const orderB = postB.collectionOrder;
-          if (orderA && orderB && orderA !== orderB) {
-            return orderA - orderB;
-          } else if (timeA && timeB) {
-            return new Date(timeA) - new Date(timeB);
-          } else {
-            return 0;
-          }
-        });
-        data.collection = {
-          title: value,
-          posts: collectionPosts,
-        };
-        data.collectionModalOpen = true;
-      },
-      closeCollectionModalHandler() {
-        data.collectionModalOpen = false;
-        data.collection = null;
-      },
+      };
     });
-
-    // layout
-    if (localStorage.getItem("layout")) {
-      data.layout = localStorage.getItem("layout");
-    } else {
-      localStorage.setItem("layout", "grid");
-    }
-    if (localStorage.getItem("sortType")) {
-      data.sortType = localStorage.getItem("sortType");
-    } else {
-      localStorage.setItem("sortType", "descend");
-    }
-
-    onMounted(() => {
-      if (location.hash) {
-        data.currentTag = location.hash.slice(1);
-      }
-
-      if (data.layout === "masonry") {
-        data.masonry = createMasonryLayout("#cards-container", ".grid-item");
-      }
-    });
-
-    const page = usePageData();
-
-    data.classification = page.value.frontmatter.classification;
-    data.posts = page.value.postsList.posts;
-    data.tags = ["all", ...page.value.postsList.tags];
-
-    window.onhashchange = function (event) {
-      data.currentTag = location.hash.slice(1);
-    };
 
     // sort posts
     const sortPosts = computed(() => {
@@ -352,13 +371,13 @@ export default {
             ? new Date(timeB) - new Date(timeA)
             : new Date(timeA) - new Date(timeB);
         } else {
-          return 0
+          return 0;
         }
       });
-      if (data.layout === "masonry" && data.masonry) {
+      if (data.layout === "masonry" && masonry) {
         nextTick(() => {
-          data.masonry.reloadItems();
-          data.masonry.layout();
+          masonry.reloadItems();
+          masonry.layout();
         });
       }
       return posts;
@@ -369,6 +388,9 @@ export default {
     return {
       ...refData,
       sortPosts,
+      setSortType,
+      setCollectionHandler,
+      closeCollectionModalHandler,
     };
   },
 };

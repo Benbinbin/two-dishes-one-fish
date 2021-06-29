@@ -2,7 +2,7 @@
   <nav class="px-4 sm:px-8 py-2 flex justify-between items-center">
     <div class="left flex items-center space-x-0.5">
       <slot name="left"></slot>
-      <a class="avatar p-2 hover:bg-gray-100 rounded-md" href="/">
+      <a class="avatar p-2 hover:bg-gray-100 rounded-md" :href="$withBase('#')">
         <img
           :src="$withBase(`/images/${avatar}`)"
           alt="avatar"
@@ -111,7 +111,7 @@
 </template>
 
 <script>
-import { reactive, toRefs } from "vue";
+import { reactive, toRefs, onMounted } from "vue";
 import { usePageData } from "@vuepress/client";
 
 export default {
@@ -129,18 +129,22 @@ export default {
       navbarItemsList: [],
       currentItem: "",
       showMoreModal: false,
+      changeURL: () => {},
     });
-    // methods
-    const changeURL = (link, event) => {
-      if (link !== "All" && event && event.ctrlKey && event.shiftKey) {
-        window.location.href = `${__BASE__}folder/${link.toLowerCase()}`;
-      } else {
-        window.location.href = `${__BASE__}${
-          data.baseURL
-        }/${link.toLowerCase()}`;
-      }
-      data.showMoreModal = false;
-    };
+
+    onMounted(() => {
+      data.changeURL = (link, event) => {
+        console.log(event);
+        if (link !== "All" && event && event.ctrlKey && event.shiftKey) {
+          window.location.href = `${__BASE__}folder/${link.toLowerCase()}`;
+        } else {
+          window.location.href = `${__BASE__}${
+            data.baseURL
+          }/${link.toLowerCase()}`;
+        }
+        data.showMoreModal = false;
+      };
+    });
 
     const page = usePageData();
     data.avatar = __AVATAR__ || "";
@@ -157,7 +161,6 @@ export default {
     const refData = toRefs(data);
     return {
       ...refData,
-      changeURL,
     };
   },
 };

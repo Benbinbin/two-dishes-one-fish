@@ -115,7 +115,7 @@
                     />
                   </svg>
                 </div>
-                <span class="text-xs"> {{ item.name.toUpperCase() }}</span>
+                <span class="text-xs"> {{ item.name }}</span>
               </button>
             </template>
           </div>
@@ -241,6 +241,7 @@
     </main>
     <Footer v-show="layout === 'grid'" />
     <!-- tree -->
+    <!-- <div v-show="layout === 'tree'" class="tree-container relative"> -->
     <posts-tree
       :layout="layout"
       :width="treeWidth"
@@ -310,7 +311,7 @@
             />
           </svg>
           <span class="text-xs hidden sm:block">
-            {{ folder.toUpperCase() }}</span
+            {{ folder }}</span
           >
         </button>
       </div>
@@ -396,6 +397,7 @@
         </button>
       </div>
     </div>
+    <!-- </div> -->
 
     <teleport to="body">
       <collection-modal
@@ -419,11 +421,11 @@ import {
 } from "vue";
 import { usePageData } from "@vuepress/client";
 
-import Navbar from "../components/Navbar.vue";
-import Footer from "../components/Footer.vue";
-import FolderItem from "../components/FolderItem.vue";
-import PostsTree from "../components/PostsTree.vue";
-import CollectionModal from "../components/CollectionModal.vue";
+import Navbar from "../../components/Navbar.vue";
+import Footer from "../../components/Footer.vue";
+import FolderItem from "../../components/FolderItem.vue";
+import PostsTree from "../../components/PostsTree.vue";
+import CollectionModal from "../../components/CollectionModal.vue";
 
 function buildPostsTreeData(rootName, postsList) {
   let tree = {
@@ -442,6 +444,7 @@ function buildPostsTreeData(rootName, postsList) {
 
     for (let index = 0; index < paths.length; index++) {
       const path = paths[index];
+      // let existingPath = getLocation(currentLevel, "name", path);
       let existingPath = currentContent.find((item) => {
         return item.name === path;
       });
@@ -602,6 +605,8 @@ export default {
           if (newValue === "tree") {
             nextTick(() => {
               getSize();
+              // console.log(data.treeWidth);
+              // console.log(data.treeHeight);
             });
           }
         }
@@ -614,6 +619,8 @@ export default {
         }
         resizeTimer = setTimeout(() => {
           getSize();
+          // console.log(data.mainWidth);
+          // console.log(data.mainHeight);
           resizeTimer = null;
         }, 300);
       };

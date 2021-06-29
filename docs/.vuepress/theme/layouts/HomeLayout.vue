@@ -24,10 +24,10 @@
         我是
         <a
           class="hover:text-blue-400 underline font-bold transition-colors"
-          :href="homeNameLink"
+          href="https://benbinbin.github.io/Portfolio/"
           target="_blank"
           >{{ author }}</a
-        >，这是我的部落格和笔记管理系统。
+        >，该 blog 是我学习技术过程中做的笔记。
       </p>
     </header>
 
@@ -75,20 +75,25 @@
 </template>
 
 <script>
-import Footer from "../components/Footer.vue";
+import Footer from "../../components/Footer.vue";
 import { usePageFrontmatter } from "@vuepress/client";
-import { reactive, toRefs } from "vue";
+import { reactive, toRefs, onMounted } from "vue";
 
 export default {
   components: {
     Footer,
   },
   setup(props) {
+    // data
     const data = reactive({
       author: "",
-      homeNameLink: "",
       cards: [],
-      clickHandler(value) {
+      clickHandler: () => {},
+      ctrlShiftClickHandler: () => {},
+    });
+
+    onMounted(() => {
+      data.clickHandler = (value) => {
         let link = "";
         if (value !== "Toolbox") {
           link = `postslist/${value.toLowerCase()}`;
@@ -96,8 +101,9 @@ export default {
           link = "#";
         }
         window.open(link);
-      },
-      ctrlShiftClickHandler(value) {
+      };
+
+      data.ctrlShiftClickHandler = (value) => {
         let link = "";
         if (value !== "Toolbox") {
           link = `folder/${value.toLowerCase()}`;
@@ -105,11 +111,10 @@ export default {
           link = "#";
         }
         window.open(link);
-      },
+      };
     });
 
     data.author = __AUTHOR__ || "";
-    data.homeNameLink = __HOME_NAME_LINK__ || "#";
     data.cards = usePageFrontmatter().value.cards || [];
 
     const refData = toRefs(data);
@@ -121,6 +126,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// @tailwind components;
+// @tailwind utilities;
+
 .card::after {
   content: "";
   background-color: rgba(0, 0, 0, 0.25);

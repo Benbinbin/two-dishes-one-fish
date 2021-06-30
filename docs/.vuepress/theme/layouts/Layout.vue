@@ -55,10 +55,7 @@
       </template>
     </Navbar>
     <div class="relative flex-grow">
-      <Layout>
-        <!-- <template #page-top></template>
-        <template #page-bottom></template> -->
-      </Layout>
+      <Layout></Layout>
       <div
         v-show="showCatalog"
         class="catalog-container absolute top-0 right-0 h-full hidden lg:block"
@@ -247,11 +244,22 @@ export default {
 
   li {
     margin-left: 30px;
+  }
+
+  ol li {
+    list-style: decimal;
+  }
+
+  ul li {
     list-style: circle;
   }
 
-  div > ul > li {
+  & > ul > li {
     list-style: disc;
+  }
+
+  & > ul > li > ul > li > ul > li {
+    list-style: square;
   }
 
   img {

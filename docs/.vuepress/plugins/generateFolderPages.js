@@ -4,7 +4,6 @@ const generateFolderPages = (options, app) => {
   let postFolders = {}
   options.postFolders.forEach(folder => {
     postFolders[folder] = {
-      // postsTree: {},
       posts: [],
       tags: []
     }
@@ -41,12 +40,12 @@ const generateFolderPages = (options, app) => {
         postFolders[folder].tags = [...new Set([...postFolders[folder].tags, ...post.tags])]
       })
 
-      // set folder page data
+      // add folder navigation pages
       let folderOptions = [];
 
       options.postFolders.forEach(item => {
         folderOptions.push({
-          path: `/folder/${item}`,
+          path: `/folderslist/${item}`,
           frontmatter: {
             layout: 'FolderLayout',
             folder: item
@@ -59,6 +58,7 @@ const generateFolderPages = (options, app) => {
       folderOptions.forEach(option => {
         folderPagesPromise.push(createPage(app, option))
       })
+
       const folderPages = await Promise.all(folderPagesPromise)
 
       folderPages.forEach(page => {
@@ -67,6 +67,7 @@ const generateFolderPages = (options, app) => {
 
     },
     extendsPageData: (page, app) => {
+      // add data to each folder navigation pages
       if (page.frontmatter.folder) {
         return {
           postsData: postFolders[page.frontmatter.folder]

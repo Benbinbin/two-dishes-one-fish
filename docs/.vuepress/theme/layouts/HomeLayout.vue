@@ -94,22 +94,12 @@ export default {
 
     onMounted(() => {
       data.clickHandler = (value) => {
-        let link = "";
-        if (value !== "Toolbox") {
-          link = `postslist/${value.toLowerCase()}`;
-        } else if (value === "Toolbox") {
-          link = "#";
-        }
+       const link = `postslist/${value.toLowerCase()}`;
         window.open(link);
       };
 
       data.ctrlShiftClickHandler = (value) => {
-        let link = "";
-        if (value !== "Toolbox") {
-          link = `folder/${value.toLowerCase()}`;
-        } else if (value === "Toolbox") {
-          link = "#";
-        }
+       const link = `folderslist/${value.toLowerCase()}`;
         window.open(link);
       };
     });
@@ -126,9 +116,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// @tailwind components;
-// @tailwind utilities;
-
 .card::after {
   content: "";
   background-color: rgba(0, 0, 0, 0.25);

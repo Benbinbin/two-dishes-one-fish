@@ -50,7 +50,7 @@ const generateListPages = (options, app) => {
         postClassifications[classification].tags = [...new Set([...postClassifications[classification].tags, ...post.tags])]
       })
 
-      // set list page data
+      // add classification navigation pages
       let listOptions = [{
         path: '/postslist/all',
         frontmatter: {
@@ -69,19 +69,19 @@ const generateListPages = (options, app) => {
         })
       })
 
-      // create list pages
       let listPagesPromise = []
       listOptions.forEach(option => {
         listPagesPromise.push(createPage(app, option))
       })
+
       const listPages = await Promise.all(listPagesPromise)
 
       listPages.forEach(page => {
         app.pages.push(page)
       });
-
     },
     extendsPageData: (page, app) => {
+      // add data to each classification navigation pages
       if (page.frontmatter.classification) {
         return {
           postsList: postClassifications[page.frontmatter.classification]

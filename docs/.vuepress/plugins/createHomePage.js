@@ -4,19 +4,21 @@ const createHomePage = (options, app) => {
   return {
     name: 'vuepress-plugin-createHomePage',
     async onInitialized(app) {
-      // 如果主页不存在
+      // if homepage doesn't exist
       if (app.pages.every((page) => page.path !== '/')) {
-        // 创建一个主页
+        // async create a homepage 
         const homepage = await createPage(app, {
           path: '/',
-          // 设置 frontmatter
+          // set frontmatter
           frontmatter: {
             layout: 'HomeLayout',
             cards: options.cards || []
           },
         })
 
-        // 把它添加到 `app.pages`
+        console.log(homepage)
+
+        // push the homepage to app.pages
         app.pages.push(homepage)
       }
     },

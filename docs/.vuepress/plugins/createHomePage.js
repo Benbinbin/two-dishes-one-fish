@@ -16,8 +16,6 @@ const createHomePage = (options, app) => {
           },
         })
 
-        console.log(homepage)
-
         // push the homepage to app.pages
         app.pages.push(homepage)
       }

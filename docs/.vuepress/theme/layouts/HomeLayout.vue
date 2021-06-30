@@ -6,29 +6,26 @@
         flex flex-col
         justify-center
         items-center
-        bg-gray-400
         text-white
       "
+      :style="{'background-color': color}"
     >
-      <h1 class="p-8 text-center text-5xl md:text-8xl font-bold">技术部落格</h1>
-      <div class="container w-full p-8 flex justify-center items-center">
+      <h1 class="p-8 text-center text-5xl md:text-8xl font-bold">
+        {{ title }}
+      </h1>
+      <div
+        v-if="icon"
+        class="container w-full p-8 md:p-10 flex justify-center items-center"
+      >
         <div class="before flex-grow h-0.5 bg-white"></div>
         <img
           class="flex-shrink-0 px-4 w-20 sm:w-24"
-          :src="$withBase('/images/icons/tech-blog.svg')"
+          :src="$withBase(`/images/home/${icon}`)"
           alt="tech blog logo"
         />
         <div class="after flex-grow h-0.5 bg-white"></div>
       </div>
-      <p class="p-8 text-center text-lg font-bold">
-        我是
-        <a
-          class="hover:text-blue-400 underline font-bold transition-colors"
-          href="https://benbinbin.github.io/Portfolio/"
-          target="_blank"
-          >{{ author }}</a
-        >，该 blog 是我学习技术过程中做的笔记。
-      </p>
+      <p class="p-8 text-center text-lg font-bold" v-html="description"></p>
     </header>
 
     <main class="px-8 py-16">
@@ -87,6 +84,10 @@ export default {
     // data
     const data = reactive({
       author: "",
+      title: "",
+      icon: "",
+      description: "",
+      color: "",
       cards: [],
       clickHandler: () => {},
       ctrlShiftClickHandler: () => {},
@@ -94,17 +95,21 @@ export default {
 
     onMounted(() => {
       data.clickHandler = (value) => {
-       const link = `postslist/${value.toLowerCase()}`;
+        const link = `postslist/${value.toLowerCase()}`;
         window.open(link);
       };
 
       data.ctrlShiftClickHandler = (value) => {
-       const link = `folderslist/${value.toLowerCase()}`;
+        const link = `folderslist/${value.toLowerCase()}`;
         window.open(link);
       };
     });
 
-    data.author = __AUTHOR__ || "";
+    data.title = __HOME_PAGE_TITLE__ || "Blog";
+    data.icon = __HOME_PAGE_ICON__ || "";
+    data.description =
+      __HOME_DESCRIPTION__ || "A blog and knowledge management system.";
+    data.color = __HOME_PAGE_COLOR__ || "#9CA3AF";
     data.cards = usePageFrontmatter().value.cards || [];
 
     const refData = toRefs(data);

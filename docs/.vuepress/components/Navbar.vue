@@ -134,7 +134,6 @@ export default {
 
     onMounted(() => {
       data.changeURL = (link, event) => {
-        console.log(event);
         if (link !== "All" && event && event.ctrlKey && event.shiftKey) {
           window.location.href = `${__BASE__}folder/${link.toLowerCase()}`;
         } else {

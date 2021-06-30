@@ -120,18 +120,13 @@ export default {
       headings: [],
     });
 
-    // const page = usePageData();
-    // console.log(page.value);
-
     onMounted(() => {
       // get headings list
       const contentDom = document.getElementsByClassName(
         "theme-default-content"
       )[0];
       const headingDomList = contentDom.querySelectorAll("h2, h3, h4, h5, h6");
-      // console.log(headingDomList);
       const headingsArr = Array.from(headingDomList);
-      // console.log(headingsArr);
 
       headingDomList.forEach((item) => {
         data.headings.push({

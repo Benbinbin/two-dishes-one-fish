@@ -605,8 +605,6 @@ export default {
           if (newValue === "tree") {
             nextTick(() => {
               getSize();
-              // console.log(data.treeWidth);
-              // console.log(data.treeHeight);
             });
           }
         }
@@ -619,8 +617,6 @@ export default {
         }
         resizeTimer = setTimeout(() => {
           getSize();
-          // console.log(data.mainWidth);
-          // console.log(data.mainHeight);
           resizeTimer = null;
         }, 300);
       };

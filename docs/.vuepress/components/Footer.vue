@@ -23,10 +23,10 @@
       <p class="text-xs text-center text-gray-400">
         除特殊说明外，本站的文章遵循
         <a
-          href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"
+          :href="footerLicenseLink"
           target="_blank"
           class="text-blue-400"
-          >CC-BY-SA-4.0</a
+          >{{ footerLicense }}</a
         >
         协议
       </p>
@@ -67,13 +67,19 @@ export default {
     const data = reactive({
       author: "",
       avatar: "",
-      socialMedia: [],
       footerAvatarLink: "",
+      footerLicense: "",
+      footerLicenseLink: "",
+      socialMedia: [],
     });
     data.author = __AUTHOR__ || "";
     data.avatar = __AVATAR__ || "";
-    data.socialMedia = __SOCIAL_MEDIA__ || [];
     data.footerAvatarLink = __FOOTER_AVATAR_LINK__ || "#";
+    data.footerLicense = __FOOTER_LICENSE__ || "CC-BY-SA-4.0";
+    data.footerLicenseLink =
+      __FOOTER_LICENSE_LINK__ ||
+      "https://creativecommons.org/licenses/by-sa/4.0/deed.en";
+    data.socialMedia = __SOCIAL_MEDIA__ || [];
 
     const refData = toRefs(data);
     return {

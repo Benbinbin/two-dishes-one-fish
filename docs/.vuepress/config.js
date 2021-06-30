@@ -5,7 +5,7 @@ module.exports = {
   lang: 'zh-CN',
   base: "/repo/",
   title: "Blog",
-  description: 'A blog shows some of the notes I took while learning skills.',
+  description: 'A blog and knowledge management system.',
   head: [
     ['link', { rel: 'icon', href: '/repo/images/favicon.ico' }],
     ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/katex@0.13.5/dist/katex.min.css' }],
@@ -68,9 +68,17 @@ module.exports = {
   },
   define: {
     __BASE__: "/repo/",
-    __AUTHOR__: 'avatar',
-    __HOME_NAME_LINK__: 'https://www.google.com/',
+    __HOME_PAGE_TITLE__: "一鱼两吃",
+    __HOME_PAGE_ICON__: "home_icon.png",
+    __HOME_DESCRIPTION__: "这是我的部落格也是一个知识管理系统。",
+    __HOME_PAGE_COLOR__: '#9CA3AF',
     __AVATAR__: 'avatar.png',
+    __CLASSIFICATIONS__: ['All', 'Folder1', 'Folder2'],
+    __FOLDERS__: ['Folder1', 'Folder2'],
+    __FOOTER_AVATAR_LINK__: 'https://github.com/Benbinbin/two-dishes-one-fish',
+    __AUTHOR__: 'two dishes on fish',
+    __FOOTER_LICENSE__: 'CC-BY-SA-4.0',
+    __FOOTER_LICENSE_LINK__: 'https://creativecommons.org/licenses/by-sa/4.0/deed.en',
     __SOCIAL_MEDIA__: [
       {
         name: 'email',
@@ -80,7 +88,7 @@ module.exports = {
       {
         name: 'github',
         logo: 'github.svg',
-        url: 'https://github.com/[username]'
+        url: 'https://github.com/Benbinbin/two-dishes-one-fish'
       },
       {
         name: 'juejin',
@@ -103,8 +111,5 @@ module.exports = {
         url: 'https://weibo.com/[username]'
       },
     ],
-    __CLASSIFICATIONS__: ['All', 'Folder1', 'Folder2'],
-    __FOLDERS__: ['Folder1', 'Folder2'],
-    __FOOTER_AVATAR_LINK__: 'https://www.google.com/',
   },
 }

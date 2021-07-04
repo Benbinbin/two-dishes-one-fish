@@ -1,5 +1,7 @@
 <template>
-  <footer class="bg-gray-200 p-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+  <footer
+    class="bg-gray-200 p-8 grid grid-cols-1 md:grid-cols-3 gap-4 items-center"
+  >
     <div class="flex justify-center md:justify-start items-center">
       <a
         class="p-2 hover:bg-gray-300 rounded-md"
@@ -14,21 +16,27 @@
       </a>
     </div>
 
-    <div class="copyright text-center">
-      <p class="text-sm text-gray-500">
+    <div class="text-center space-y-0.5">
+      <p class="text-sm text-gray-600">
         &copy;{{ new Date().getFullYear() }}
         <span class="author">{{ author }}</span
         >. All Right Reserved.
       </p>
       <p class="text-xs text-center text-gray-400">
         除特殊说明外，本站的文章遵循
+        <a :href="footerLicenseLink" target="_blank" class="text-blue-400">{{
+          footerLicense
+        }}</a>
+        协议
+      </p>
+      <p class="text-xs text-center text-gray-400">
+        网站主题采用
         <a
-          :href="footerLicenseLink"
+          href="https://github.com/Benbinbin/two-dishes-one-fish"
           target="_blank"
           class="text-blue-400"
-          >{{ footerLicense }}</a
+          >Two Dishes One Fish</a
         >
-        协议
       </p>
     </div>
 

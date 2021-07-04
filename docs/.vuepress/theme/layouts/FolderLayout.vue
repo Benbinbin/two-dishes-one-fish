@@ -17,9 +17,9 @@
       <h2 class="py-10 text-5xl font-bold text-center border-0">
         {{ folder.toUpperCase() }}
       </h2>
-      <div v-if="tags.length > 0" class="container p-10 mx-auto">
+      <div v-if="tags.length > 0" class="container p-10 mx-auto flex flex-wrap space-x-2">
         <a
-          class="tag p-2 text-gray-400 hover:text-gray-600 text-sm font-bold"
+          class="tag py-2 text-gray-400 hover:text-gray-600 text-sm font-bold"
           :class="{ 'text-blue-400': currentTag === item }"
           v-for="item of tags"
           :key="item"

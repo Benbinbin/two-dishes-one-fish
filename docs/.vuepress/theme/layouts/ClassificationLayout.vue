@@ -23,7 +23,7 @@
       <div class="container p-10 mx-auto flex justify-between">
         <div class="flex items-center space-x-2">
           <button
-            class="p-2 rounded flex items-center space-x-1"
+            class="p-2 select-none rounded flex items-center space-x-1"
             :class="{
               'bg-blue-500 hover:bg-blue-600 text-white': layout === 'grid',
               'bg-gray-100 hover:bg-blue-500 text-gray-500 hover:text-white':
@@ -45,7 +45,7 @@
             <span class="text-xs hidden sm:block">Grid</span>
           </button>
           <button
-            class="hidden p-2 rounded sm:flex items-center space-x-1"
+            class="hidden p-2 select-none rounded sm:flex items-center space-x-1"
             :class="{
               'bg-blue-500 hover:bg-blue-600 text-white': layout === 'masonry',
               'bg-gray-100 hover:bg-blue-500 text-gray-500 hover:text-white':
@@ -67,7 +67,7 @@
             <span class="text-xs hidden sm:block">Masonry</span>
           </button>
           <button
-            class="p-2 rounded flex items-center space-x-1"
+            class="p-2 select-none rounded flex items-center space-x-1"
             :class="{
               'bg-blue-500 hover:bg-blue-600 text-white': layout === 'list',
               'bg-gray-100 hover:bg-blue-500 text-gray-500 hover:text-white':
@@ -92,7 +92,7 @@
         </div>
         <div class="flex items-center space-x-2">
           <button
-            class="p-2 text-xs rounded"
+            class="p-2 select-none text-xs rounded"
             :class="{
               'bg-blue-500 hover:bg-blue-600 text-white': sortByUpdated,
               'bg-gray-100 hover:bg-blue-500 text-gray-500 hover:text-white':
@@ -104,7 +104,7 @@
             Updated
           </button>
           <button
-            class="p-2 rounded flex items-center space-x-1"
+            class="p-2 select-none rounded flex items-center space-x-1"
             :class="{
               'bg-blue-500 hover:bg-blue-600 text-white': sortType === 'ascend',
               'bg-gray-100 hover:bg-blue-500 text-gray-500 hover:text-white':
@@ -133,7 +133,7 @@
             <span class="text-xs hidden sm:block">Ascend</span>
           </button>
           <button
-            class="p-2 rounded flex items-center space-x-1"
+            class="p-2 select-none rounded flex items-center space-x-1"
             :class="{
               'bg-blue-500 hover:bg-blue-600 text-white':
                 sortType === 'descend',

@@ -45,6 +45,7 @@
           v-if="post.collection"
           class="
             p-2
+            select-none
             flex-shrink-0
             text-gray-600
             hover:text-gray-900
@@ -105,6 +106,7 @@
           folder-head
           px-4
           py-3
+          select-none
           flex
           items-start
           text-white
@@ -176,6 +178,7 @@
               class="
                 flex-shrink-0
                 p-2
+                select-none
                 text-gray-500
                 hover:text-gray-900
                 hover:bg-gray-200
@@ -201,6 +204,7 @@
             class="
               w-full
               p-2
+              select-none
               flex
               items-start
               space-x-1

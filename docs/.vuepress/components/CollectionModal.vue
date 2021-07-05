@@ -27,7 +27,7 @@
         <h2 class="text-md font-bold border-0">{{ collection.title }}</h2>
         <button
           @click="closeModalHandler"
-          class="p-2 rounded-lg text-red-400 hover:bg-gray-200"
+          class="p-2 select-none rounded-lg text-red-400 hover:bg-gray-200"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -57,6 +57,7 @@
           class="
             flex-grow
             py-4
+            select-none
             flex
             items-center
             justify-center
@@ -80,6 +81,7 @@
           class="
             flex-grow
             p-2
+            select-none
             flex
             items-center
             justify-center

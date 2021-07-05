@@ -108,6 +108,7 @@
       <button
         class="
           p-3
+          select-none
           rounded
           flex
           items-center

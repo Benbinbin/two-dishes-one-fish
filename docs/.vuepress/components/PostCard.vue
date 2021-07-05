@@ -80,7 +80,7 @@
 
       <button
         v-if="post.collection"
-        class="p-2 flex-shrink-0 hover:bg-gray-300 rounded text-blue-500"
+        class="p-2 select-none flex-shrink-0 hover:bg-gray-300 rounded text-blue-500"
         title="查看系列文章"
         @click="$emit('setCollection', post.collection)"
       >

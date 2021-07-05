@@ -3,7 +3,7 @@
     <Navbar class="sticky top-0 z-30 bg-white" :navbar-type="'classification'">
       <template v-slot:left>
         <button
-          class="p-2 text-sm font-bold hover:text-gray-900 rounded-md lg:hidden"
+          class="p-2 select-none text-sm font-bold hover:text-gray-900 rounded-md lg:hidden"
           :class="{
             'text-gray-400 hover:bg-gray-100': !showSideBar,
             'text-gray-900 bg-gray-100 hover:bg-gray-200': showSideBar,
@@ -27,6 +27,7 @@
         <button
           class="
             p-2
+            select-none
             text-sm
             font-bold
             hover:text-gray-900

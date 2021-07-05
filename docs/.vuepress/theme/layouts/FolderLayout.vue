@@ -44,6 +44,7 @@
           <button
             class="
               p-3
+              select-none
               rounded
               hidden
               sm:flex
@@ -80,6 +81,7 @@
               <button
                 class="
                   p-1
+                  select-none
                   sm:p-3
                   rounded
                   flex
@@ -124,6 +126,7 @@
           <button
             class="
               p-3
+              select-none
               rounded
               sm:hidden
               items-center
@@ -151,7 +154,7 @@
           </button>
           <div class="flex items-center space-x-2">
             <button
-              class="p-3 rounded flex items-center space-x-1"
+              class="p-3 select-none rounded flex items-center space-x-1"
               :class="{
                 'bg-blue-500 hover:bg-blue-600 text-white': layout === 'grid',
                 'bg-gray-100 hover:bg-blue-500 text-gray-500 hover:text-white':
@@ -173,7 +176,7 @@
               <span class="text-xs hidden sm:block">Grid</span>
             </button>
             <button
-              class="hidden p-3 rounded sm:flex items-center space-x-1"
+              class="hidden p-3 select-none rounded sm:flex items-center space-x-1"
               :class="{
                 'bg-blue-500 hover:bg-blue-600 text-white': layout === 'tree',
                 'bg-gray-100 hover:bg-blue-500 text-gray-500 hover:text-white':
@@ -256,6 +259,7 @@
         <button
           class="
             p-3
+            select-none
             rounded
             flex
             items-center
@@ -286,6 +290,7 @@
         <button
           class="
             p-3
+            select-none
             rounded
             flex
             items-center
@@ -319,6 +324,7 @@
         <button
           class="
             p-3
+            select-none
             rounded
             flex
             items-center
@@ -352,6 +358,7 @@
           class="
             hidden
             p-3
+            select-none
             rounded
             sm:flex
             items-center

@@ -23,6 +23,17 @@ module.exports = {
       },
     }
   },
+  // bundler: '@vuepress/webpack',
+  // bundlerConfig: {
+  //   postcss: {
+  //     postcssOptions: {
+  //       plugins: {
+  //         tailwindcss: {},
+  //         autoprefixer: {},
+  //       },
+  //     },
+  //   },
+  // },
   plugins: [
     require('./plugins/addTime.js'),
     [require('./plugins/createHomePage.js'),

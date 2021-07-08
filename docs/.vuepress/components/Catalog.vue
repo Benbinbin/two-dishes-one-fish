@@ -8,7 +8,7 @@
         xl:pl-16
         2xl:pl-20
         py-4
-        opacity-20
+        opacity-50
         hover:opacity-100
         transition-all
         duration-300

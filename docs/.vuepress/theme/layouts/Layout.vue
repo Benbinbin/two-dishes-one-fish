@@ -3,12 +3,21 @@
     <Navbar class="sticky top-0 z-30 bg-white" :navbar-type="'classification'">
       <template v-slot:left>
         <button
-          class="p-2 select-none text-sm font-bold hover:text-gray-900 rounded-md lg:hidden"
+          class="
+            catelog-btn
+            p-2
+            select-none
+            text-sm
+            font-bold
+            hover:text-gray-900
+            rounded-md
+            lg:hidden
+          "
           :class="{
-            'text-gray-400 hover:bg-gray-100': !showSideBar,
-            'text-gray-900 bg-gray-100 hover:bg-gray-200': showSideBar,
+            'text-gray-400 hover:bg-gray-100': !showSidebar,
+            'text-gray-900 bg-gray-100 hover:bg-gray-200': showSidebar,
           }"
-          @click="showSideBar = !showSideBar"
+          @click="toggleSidebar"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -69,8 +78,19 @@
         ></Catalog>
       </div>
       <div
-        v-show="showSideBar"
-        class="sidebar-container fixed inset-y-0 left-0 z-20 lg:hidden"
+        v-show="showSidebar"
+        ref="sidebarContainer"
+        tabindex="0"
+        class="
+          sidebar-container
+          fixed
+          inset-y-0
+          left-0
+          z-20
+          lg:hidden
+          opacity-10
+          hover:opacity-95
+        "
       >
         <SideBar
           :headings="headings"
@@ -89,9 +109,7 @@ import Navbar from "../../components/Navbar.vue";
 import Catalog from "../../components/Catalog.vue";
 import SideBar from "../../components/SideBar.vue";
 import Footer from "../../components/Footer.vue";
-import { reactive, toRefs, onMounted } from "vue";
-// import { usePageData } from "@vuepress/client";
-
+import { ref, reactive, toRefs, onMounted, nextTick } from "vue";
 const headingsMap = {
   H2: 2,
   H3: 3,
@@ -112,11 +130,14 @@ export default {
     // data
     const data = reactive({
       showCatalog: true,
-      showSideBar: false,
+      showSidebar: false,
       catalogWidth: 0,
       activeHeading: "",
       headings: [],
+      toggleSidebar: () => {},
     });
+
+    const sidebarContainer = ref(null);
 
     onMounted(() => {
       // get headings list
@@ -130,7 +151,7 @@ export default {
         data.headings.push({
           level: headingsMap[item.nodeName],
           id: item.id,
-          text: item.lastChild.nodeValue.trim() || item.id,
+          text: item.textContent.slice(1).trim() || item.id,
         });
       });
 
@@ -192,17 +213,40 @@ export default {
           scrollTimer = null;
         }, 300);
       };
+
+      // toggle sidebar and focus
+      data.toggleSidebar = () => {
+        data.showSidebar = !data.showSidebar;
+        if (data.showSidebar) {
+          nextTick(() => {
+            console.log(sidebarContainer);
+            sidebarContainer.value.focus();
+          });
+        }
+      };
     });
 
     const refData = toRefs(data);
     return {
       ...refData,
+      sidebarContainer,
     };
   },
 };
 </script>
 
 <style lang="scss">
+.sidebar-container {
+  &:hover {
+    opacity: 95%;
+    background: #f3f4f6;
+  }
+  &:focus-within {
+    opacity: 95%;
+    background: #f3f4f6;
+  }
+}
+
 .theme-default-content {
   h1 {
     text-align: center;

@@ -4,9 +4,6 @@
       headings-container
       px-2
       space-y-2
-      hover:bg-gray-100
-      opacity-10
-      hover:opacity-95
       transition-all
       duration-300
     "
@@ -110,11 +107,5 @@ export default {
   overflow: overlay;
   height: 100vh;
   max-width: 60vw;
-  &:hover {
-    opacity: 95%;
-  }
-  &:focus-within {
-    opacity: 95%;
-  }
 }
 </style>

@@ -1,6 +1,6 @@
 # Two Dishes One Fish
 <p align="center">
-    <img style="width: 60%; padding:5rem" src="./docs/.vuepress/public/images/logo.png"/>
+    <img style="width: 60%; padding:5rem" src="./docs/.vuepress/public/images/two-dishes-one-fish.png"/>
 </p>
 
 <p align="center">A VuePress-next template to build a static web site as blog and knowledge management system.</p>
@@ -18,8 +18,8 @@ VuePress is so easy to use by the out-of-the-box default theme just [setting som
 * support to add tags to Markdown file and filter the posts or notes in navigation page.
 * follow the RWD, responsive web design, principle, you can browser the website in different screen size.
 ## Demo
-[Collection](https://benbinbin.github.io/Collection/)
-
+* Live Demo: [Collection](https://benbinbin.github.io/Collection/)
+* Video Demo: [Youtube](https://youtu.be/cTJmWhbQ9Qg) | [Bilibili](https://www.bilibili.com/video/BV1W64y1X7ok)
 ## Wiki
 * Checkout the [Documentation](https://github.com/Benbinbin/two-dishes-one-fish/wiki/Documentation) of [wiki](https://github.com/Benbinbin/two-dishes-one-fish/wiki) to use this template and build your own site.
 * 根据 wiki 的[使用说明](https://github.com/Benbinbin/two-dishes-one-fish/wiki/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)或[少数派的文章](https://sspai.com/post/67518)的步骤搭建自己的网站。在 wiki 的[开发日志](https://github.com/Benbinbin/two-dishes-one-fish/wiki/%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97)或[掘金的文章](https://juejin.cn/post/6980134339434512421)可查看该项目的开发笔记。

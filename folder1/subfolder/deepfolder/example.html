@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <link rel="icon" href="/repo/images/favicon.ico"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.5/dist/katex.min.css"><title>文章示例 | Blog</title><meta name="description" content="A blog and knowledge management system."><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="VuePress 2.0.0-beta.23">
+    <link rel="modulepreload" href="/repo/assets/app.31827bcb.js"><link rel="modulepreload" href="/repo/assets/example.html.fde16359.js"><link rel="modulepreload" href="/repo/assets/example.html.8c699d5b.js">
+    <link rel="stylesheet" href="/repo/assets/style.df3c4789.css">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="min-h-screen flex flex-col"><nav class="px-4 sm:px-8 py-2 flex justify-between items-center sticky top-0 z-30 bg-white"><div class="left flex items-center space-x-0.5"><!--[--><button class="
+            catelog-btn
+            p-2
+            select-none
+            text-sm
+            font-bold
+            hover:text-gray-900
+            rounded-md
+            lg:hidden
+          " class="text-gray-400 hover:bg-gray-100 catelog-btn
+            p-2
+            select-none
+            text-sm
+            font-bold
+            hover:text-gray-900
+            rounded-md
+            lg:hidden"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path></svg></button><!--]--><a class="avatar p-2 hover:bg-gray-100 rounded-md" href="/repo/#"><img src="/repo/images/avatar.png" alt="avatar" class="w-10 h-10 rounded-full"></a></div><div class="right hidden sm:flex items-center space-x-0.5"><!--[--><button class="
+          p-2
+          select-none
+          text-sm
+          font-bold
+          hover:text-gray-900
+          hover:bg-gray-100
+          rounded-md
+        " class="text-gray-400 p-2
+          select-none
+          text-sm
+          font-bold
+          hover:text-gray-900
+          hover:bg-gray-100
+          rounded-md">All</button><button class="
+          p-2
+          select-none
+          text-sm
+          font-bold
+          hover:text-gray-900
+          hover:bg-gray-100
+          rounded-md
+        " class="text-gray-400 p-2
+          select-none
+          text-sm
+          font-bold
+          hover:text-gray-900
+          hover:bg-gray-100
+          rounded-md">Folder1</button><button class="
+          p-2
+          select-none
+          text-sm
+          font-bold
+          hover:text-gray-900
+          hover:bg-gray-100
+          rounded-md
+        " class="text-gray-400 p-2
+          select-none
+          text-sm
+          font-bold
+          hover:text-gray-900
+          hover:bg-gray-100
+          rounded-md">Folder2</button><!--]--><!--[--><button class="
+            p-2
+            select-none
+            text-sm
+            font-bold
+            hover:text-gray-900
+            rounded-md
+            hidden
+            lg:block
+          " class="text-gray-900 bg-gray-100 hover:bg-gray-200 p-2
+            select-none
+            text-sm
+            font-bold
+            hover:text-gray-900
+            rounded-md
+            hidden
+            lg:block"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path></svg></button><!--]--></div><div class="more-container sm:hidden relative"><button style="" class="p-2 select-none hover:bg-gray-100 rounded-md text-gray-500"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16"><path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"></path></svg></button><button style="display:none;" class="p-2 select-none hover:bg-gray-100 rounded-md text-red-400 hover:text-red-500"><svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"></path></svg></button><div style="display:none;" class="
+          more-modal
+          p-2
+          absolute
+          top-10
+          right-0
+          z-10
+          flex flex-col
+          space-y-2
+          bg-gray-100
+          rounded-md
+          opacity-90
+        "><!--[--><button class="
+            px-4
+            py-2
+            select-none
+            text-sm text-center
+            font-bold
+            hover:text-gray-900
+            hover:bg-gray-200
+            rounded-md
+          " class="text-gray-400 px-4
+            py-2
+            select-none
+            text-sm text-center
+            font-bold
+            hover:text-gray-900
+            hover:bg-gray-200
+            rounded-md">All</button><button class="
+            px-4
+            py-2
+            select-none
+            text-sm text-center
+            font-bold
+            hover:text-gray-900
+            hover:bg-gray-200
+            rounded-md
+          " class="text-gray-400 px-4
+            py-2
+            select-none
+            text-sm text-center
+            font-bold
+            hover:text-gray-900
+            hover:bg-gray-200
+            rounded-md">Folder1</button><button class="
+            px-4
+            py-2
+            select-none
+            text-sm text-center
+            font-bold
+            hover:text-gray-900
+            hover:bg-gray-200
+            rounded-md
+          " class="text-gray-400 px-4
+            py-2
+            select-none
+            text-sm text-center
+            font-bold
+            hover:text-gray-900
+            hover:bg-gray-200
+            rounded-md">Folder2</button><!--]--></div></div></nav><div class="relative flex-grow"><div class="theme-container no-navbar no-sidebar"><!----><div class="sidebar-mask"></div><aside class="sidebar"><!----><!--[--><!--]--><ul class="sidebar-links"><!--[--><!--]--></ul><!--[--><!--]--></aside><!--[--><main class="page"><!--[--><!--]--><div class="theme-default-content"><!--[--><h1 id="文章示例" tabindex="-1"><a class="header-anchor" href="#文章示例" aria-hidden="true">#</a> 文章示例</h1><p>Markdown 是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。Markdown 文件的后缀名是 <code>.md</code></p><h1 id="一级标题-h1" tabindex="-1"><a class="header-anchor" href="#一级标题-h1" aria-hidden="true">#</a> 一级标题 H1</h1><h2 id="二级标题-h2" tabindex="-1"><a class="header-anchor" href="#二级标题-h2" aria-hidden="true">#</a> 二级标题 H2</h2><h3 id="三级标题-h3" tabindex="-1"><a class="header-anchor" href="#三级标题-h3" aria-hidden="true">#</a> 三级标题 H3</h3><h4 id="四级标题-h4" tabindex="-1"><a class="header-anchor" href="#四级标题-h4" aria-hidden="true">#</a> 四级标题 H4</h4><h5 id="五级标题-h5" tabindex="-1"><a class="header-anchor" href="#五级标题-h5" aria-hidden="true">#</a> 五级标题 H5</h5><h6 id="六级标题-h5" tabindex="-1"><a class="header-anchor" href="#六级标题-h5" aria-hidden="true">#</a> 六级标题 H5</h6><hr><p><s>删除线</s><em>斜体字</em><strong>粗体</strong>上标 X<sup>2</sup> 下标 O<sub>2</sub> <mark>高亮</mark></p><blockquote><p>引用文本 Blockquotes</p></blockquote><p><a href="https://benbinbin.github.io/" target="_blank" rel="noopener noreferrer">链接</a></p><p>行内代码 <code>npm install marked</code></p><p>代码块</p><div class="language-javascript ext-js line-numbers-mode"><pre class="language-javascript"><code>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#39;hello world!&#39;</span><span class="token punctuation">)</span>
+</code></pre><div class="line-numbers"><span class="line-number">1</span><br></div></div><p>表格</p><table><thead><tr><th>First Header</th><th>Second Header</th></tr></thead><tbody><tr><td>Content Cell</td><td>Content Cell</td></tr><tr><td>Content Cell</td><td>Content Cell</td></tr></tbody></table><p>图片</p><p><img src="/repo/assets/typewriter.d2322f17.jpg" alt="打字机"></p><p>无序列表</p><ul><li>列表一 <ul><li>内嵌列表 1</li><li>内嵌列表 2</li><li>内嵌列表 3 <ul><li>深度嵌套列表 a</li><li>深度嵌套列表 b</li><li>深度嵌套列表 c</li></ul></li></ul></li><li>列表二</li><li>列表三</li></ul><p>有序列表</p><ol><li>第一行 <ol><li>内嵌列表 1</li><li>内嵌列表 2</li><li>内嵌列表 3</li></ol></li><li>第二行</li><li>第三行</li></ol><p><a href="https://www.webfx.com/tools/emoji-cheat-sheet/" target="_blank" rel="noopener noreferrer">emoji</a> 😄 💡 ⚠️</p><p>科学公式 <a href="https://katex.org/docs/supported.html" target="_blank" rel="noopener noreferrer">KaTeX</a></p><p>行内的公式 <span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.05764em;">E</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord mathnormal">m</span><span class="mord"><span class="mord mathnormal">c</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></p><p>公式块</p><p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.70003em;vertical-align:-1.1000150000000002em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6000149999999997em;"><span style="top:-3.6000150000000004em;"><span class="pstrut" style="height:3.45em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathnormal">A</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.1000150000000002em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6000149999999997em;"><span style="top:-3.6000150000000004em;"><span class="pstrut" style="height:3.45em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">[</span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">0</span></span></span><span style="top:-2.4099999999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9500000000000004em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span><span style="top:-2.4099999999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9500000000000004em;"><span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">]</span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">[</span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">a</span></span></span><span style="top:-2.4099999999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">c</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9500000000000004em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">b</span></span></span><span style="top:-2.4099999999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">d</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9500000000000004em;"><span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">]</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.1000150000000002em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:1em;"></span><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6000149999999997em;"><span style="top:-3.6000150000000004em;"><span class="pstrut" style="height:3.45em;"></span><span class="mord"><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size3">[</span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">c</span></span></span><span style="top:-2.4099999999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">a</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9500000000000004em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.45em;"><span style="top:-3.61em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">d</span></span></span><span style="top:-2.4099999999999997em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">b</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.9500000000000004em;"><span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size3">]</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.1000150000000002em;"><span></span></span></span></span></span></span></span></span></span></span></span></p><!--]--></div><footer class="page-meta"><!----><div class="meta-item last-updated"><span class="meta-item-label">更新时间: </span><span class="meta-item-info">2021/7/10 上午3:10:45</span></div><!----></footer><!----><!--[--><!--]--></main><!--]--></div><div style="width:0px;" class="catalog-container absolute top-0 right-0 h-full hidden lg:block"><div class="headings-container sticky top-36" data-v-c28348e0><ul class="
+        max-w-max
+        m-2
+        pl-7
+        xl:pl-16
+        2xl:pl-20
+        py-4
+        opacity-50
+        hover:opacity-100
+        transition-all
+        duration-300
+      " data-v-c28348e0><!--[--><!--]--></ul></div></div><div style="display:none;" tabindex="0" class="
+          sidebar-container
+          fixed
+          inset-y-0
+          left-0
+          z-20
+          lg:hidden
+          opacity-10
+          hover:opacity-95
+        "><div class="headings-container
+      px-2
+      space-y-2
+      transition-all
+      duration-300 py-20" data-v-6eed9461><!--[--><!--]--></div></div></div><footer class="bg-gray-200 p-8 grid grid-cols-1 md:grid-cols-3 gap-4 items-center" data-v-2981188c><div class="flex justify-center md:justify-start items-center" data-v-2981188c><a class="p-2 hover:bg-gray-300 rounded-md" href="https://github.com/Benbinbin/two-dishes-one-fish" target="_blank" data-v-2981188c><img src="/repo/images/avatar.png" alt="avatar" class="w-10 h-10 rounded-full" data-v-2981188c></a></div><div class="text-center space-y-0.5" data-v-2981188c><p class="text-sm text-gray-600" data-v-2981188c> ©2021 <span class="author" data-v-2981188c>two dishes on fish</span>. All Right Reserved. </p><p class="text-xs text-center text-gray-400" data-v-2981188c> 除特殊说明外，本站的文章遵循 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" class="text-blue-400" data-v-2981188c>CC-BY-SA-4.0</a> 协议 </p><p class="text-xs text-center text-gray-400" data-v-2981188c> 网站主题采用 <a href="https://github.com/Benbinbin/two-dishes-one-fish" target="_blank" class="text-blue-400" data-v-2981188c>Two Dishes One Fish</a></p></div><div class="
+        btn-container
+        flex
+        justify-center
+        md:justify-end
+        items-center
+        space-x-0.5
+      " data-v-2981188c><!--[--><a class="p-2 hover:bg-gray-300 rounded-md" href="mailto:[example]@gmail.com" target="" data-v-2981188c><img src="/repo/images/icons/email.svg" alt="email" class="w-auto h-6" data-v-2981188c></a><a class="p-2 hover:bg-gray-300 rounded-md" href="https://github.com/Benbinbin/two-dishes-one-fish" target="_blank" data-v-2981188c><img src="/repo/images/icons/github.svg" alt="github" class="w-auto h-6" data-v-2981188c></a><a class="p-2 hover:bg-gray-300 rounded-md" href="https://juejin.cn/user/[userid]/posts" target="_blank" data-v-2981188c><img src="/repo/images/icons/juejin.svg" alt="juejin" class="w-auto h-6" data-v-2981188c></a><a class="p-2 hover:bg-gray-300 rounded-md" href="https://dribbble.com/[username]" target="_blank" data-v-2981188c><img src="/repo/images/icons/dribbble.svg" alt="dribbble" class="w-auto h-6" data-v-2981188c></a><a class="p-2 hover:bg-gray-300 rounded-md" href="https://twitter.com/[username]" target="_blank" data-v-2981188c><img src="/repo/images/icons/twitter.svg" alt="twitter" class="w-auto h-6" data-v-2981188c></a><a class="p-2 hover:bg-gray-300 rounded-md" href="https://weibo.com/[username]" target="_blank" data-v-2981188c><img src="/repo/images/icons/weibo.svg" alt="weibo" class="w-auto h-6" data-v-2981188c></a><!--]--></div></footer></div><!--]--></div>
+    <script type="module" src="/repo/assets/app.31827bcb.js" defer></script>
+  </body>
+</html>

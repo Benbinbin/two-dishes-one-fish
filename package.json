@@ -24,7 +24,7 @@
     "vuepress-vite": "^2.0.0-beta.22"
   },
   "dependencies": {
-    "@neilsustc/markdown-it-katex": "^0.13.5",
+    "@traptitech/markdown-it-katex": "^3.4.3",
     "d3": "^6.5.0",
     "execa": "^5.1.1",
     "markdown-it-mark": "^3.0.1",

@@ -75,7 +75,7 @@ module.exports = {
     }
   },
   extendsMarkdown: (md) => {
-    md.use(require('@neilsustc/markdown-it-katex'), { output: 'html' });
+    md.use(require('@traptitech/markdown-it-katex'), { output: 'html' });
     md.use(require('markdown-it-mark'));
     md.use(require('markdown-it-sub'));
     md.use(require('markdown-it-sup'));

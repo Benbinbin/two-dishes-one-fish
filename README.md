@@ -1,3 +1,5 @@
+:warning: This project is expired and no longer in maintenance, please check out the successor reposity **[BlogiNote](https://github.com/Benbinbin/BlogiNote)**
+
 # Two Dishes One Fish
 <p align="center">
     <img style="width: 60%; padding:5rem" src="./docs/.vuepress/public/images/two-dishes-one-fish.png"/>
